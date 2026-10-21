@@ -1,0 +1,36 @@
+# Python and tooling
+.venv/
+tmp/
+__pycache__/
+*.pyc
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+dist/
+build/
+*.egg-info/
+
+# Data: regenerate with `rapsheet-pull` and the notebook's split cell.
+# The small provenance files (disposition_map.yaml, *manifest.json, splits.json) ARE committed.
+data/raw/*.parquet
+data/processed/*.parquet
+data/processed/logits*/
+data/snapshot/
+
+# Model artifacts: the fine-tuned model goes to the Hugging Face Hub, not git
+/models/
+/checkpoints/
+*.safetensors
+*.pt
+*.bin
+*.onnx
+
+# Secrets and local environment
+.env
+.claude/
+.idea/
+.DS_Store
+
+# Notebook stuff
+/notebooks/.ipynb_checkpoints

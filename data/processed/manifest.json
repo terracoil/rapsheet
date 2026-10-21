@@ -1,0 +1,688 @@
+{
+  "columns": [
+    "case_id",
+    "case_participant_id",
+    "charge_id",
+    "charge_version_id",
+    "primary_charge",
+    "disposition_charged_offense_title",
+    "disposition_charged_chapter",
+    "disposition_charged_act",
+    "disposition_charged_section",
+    "disposition_charged_class",
+    "charge_disposition",
+    "updated_offense_category",
+    "received_date",
+    "disposition_date",
+    "court_facility"
+  ],
+  "config": {
+    "cleaning": {
+      "after_label_exclusion": 353022,
+      "label_excluded": 9824,
+      "latest_charge_version": 362846,
+      "loaded": 1080014,
+      "primary_charge": 377364,
+      "with_title_and_label": 362846
+    },
+    "excluded_labels": [
+      "PROMIS Conversion"
+    ],
+    "folded_classes": [
+      "Arson and Attempt Arson",
+      "Battery",
+      "DUI",
+      "Dog Fighting",
+      "Gambling",
+      "Pandering",
+      "Perjury",
+      "Possession of Explosives",
+      "Tampering",
+      "Violation of Sex Offender Registration"
+    ],
+    "folded_label": "(rare, folded)",
+    "min_class_rows": 20,
+    "n_categories": 77,
+    "processed_git_sha": "50c4395",
+    "processed_on": "Darwin arm64 (arm) / Python 3.13.16",
+    "rare_title_max": 5,
+    "set_aside_rows": 9824,
+    "set_aside_unseen_title_rows": 4833,
+    "split_rows": {
+      "temporal": 19973,
+      "test": 33305,
+      "train": 266439,
+      "val": 33305
+    },
+    "temporal_cutoff": "2023-01-01",
+    "title_stats": {
+      "multi_label_titles": 391,
+      "rows": 353022,
+      "rows_on_multi_label_titles": 333066,
+      "title_majority_ceiling": 0.9537,
+      "titles": 1365
+    }
+  },
+  "dataset_id": "apwk-dzx8",
+  "endpoint": "https://datacatalog.cookcountyil.gov/resource/apwk-dzx8.json",
+  "extra": {
+    "abstention": {
+      "error_budget": 0.005,
+      "global_tau": 0.993575,
+      "summary": {
+        "promis_unseen": {
+          "aurc": NaN,
+          "global_coverage": 0.0844,
+          "global_error": NaN,
+          "per_class_coverage": 0.0387,
+          "per_class_error": NaN,
+          "rows": 4833.0
+        },
+        "temporal": {
+          "aurc": 0.01,
+          "global_coverage": 0.396,
+          "global_error": 0.0071,
+          "per_class_coverage": 0.0693,
+          "per_class_error": 0.0145,
+          "rows": 19973.0
+        },
+        "test": {
+          "aurc": 0.0054,
+          "global_coverage": 0.5372,
+          "global_error": 0.0045,
+          "per_class_coverage": 0.1415,
+          "per_class_error": 0.0032,
+          "rows": 33305.0
+        },
+        "val": {
+          "aurc": 0.0055,
+          "global_coverage": 0.54,
+          "global_error": 0.004,
+          "per_class_coverage": 0.1418,
+          "per_class_error": 0.0011,
+          "rows": 33305.0
+        }
+      },
+      "thresholds": {
+        "Aggravated DUI": 0.636162,
+        "Narcotics": 0.996835,
+        "Retail Theft": 0.993117
+      },
+      "z": 1.645
+    },
+    "baselines": [
+      {
+        "accuracy": 0.3748,
+        "macro_f1": 0.008,
+        "model": "majority class (floor)",
+        "rare_class_recall": 0.0,
+        "rare_classes_scored": 35,
+        "rare_title_accuracy": 0.0579,
+        "rare_title_rows": 190,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "accuracy": 0.3097,
+        "macro_f1": 0.0074,
+        "model": "majority class (floor)",
+        "rare_class_recall": 0.0,
+        "rare_classes_scored": 31,
+        "rare_title_accuracy": 0.078,
+        "rare_title_rows": 141,
+        "rows": 19973,
+        "split": "temporal"
+      },
+      {
+        "accuracy": 0.952,
+        "macro_f1": 0.8259,
+        "model": "title lookup",
+        "rare_class_recall": 0.7478,
+        "rare_classes_scored": 35,
+        "rare_title_accuracy": 0.5947,
+        "rare_title_rows": 190,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "accuracy": 0.9428,
+        "macro_f1": 0.807,
+        "model": "title lookup",
+        "rare_class_recall": 0.7068,
+        "rare_classes_scored": 31,
+        "rare_title_accuracy": 0.5887,
+        "rare_title_rows": 141,
+        "rows": 19973,
+        "split": "temporal"
+      },
+      {
+        "accuracy": 0.9643,
+        "macro_f1": 0.8607,
+        "model": "statute rules",
+        "rare_class_recall": 0.7799,
+        "rare_classes_scored": 35,
+        "rare_title_accuracy": 0.6368,
+        "rare_title_rows": 190,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "accuracy": 0.9604,
+        "macro_f1": 0.8383,
+        "model": "statute rules",
+        "rare_class_recall": 0.7354,
+        "rare_classes_scored": 31,
+        "rare_title_accuracy": 0.6312,
+        "rare_title_rows": 141,
+        "rows": 19973,
+        "split": "temporal"
+      },
+      {
+        "accuracy": 0.9526,
+        "macro_f1": 0.823,
+        "model": "TF-IDF + logistic regression",
+        "rare_class_recall": 0.752,
+        "rare_classes_scored": 35,
+        "rare_title_accuracy": 0.6895,
+        "rare_title_rows": 190,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "accuracy": 0.9434,
+        "macro_f1": 0.8061,
+        "model": "TF-IDF + logistic regression",
+        "rare_class_recall": 0.7396,
+        "rare_classes_scored": 31,
+        "rare_title_accuracy": 0.6596,
+        "rare_title_rows": 141,
+        "rows": 19973,
+        "split": "temporal"
+      },
+      {
+        "accuracy": 0.9609,
+        "macro_f1": 0.6876,
+        "model": "legal-bert-small (title + statute)",
+        "rare_class_recall": 0.4943,
+        "rare_classes_scored": 35,
+        "rare_title_accuracy": 0.6053,
+        "rare_title_rows": 190,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "accuracy": 0.9551,
+        "macro_f1": 0.6888,
+        "model": "legal-bert-small (title + statute)",
+        "rare_class_recall": 0.5079,
+        "rare_classes_scored": 31,
+        "rare_title_accuracy": 0.6241,
+        "rare_title_rows": 141,
+        "rows": 19973,
+        "split": "temporal"
+      },
+      {
+        "accuracy": 0.9641,
+        "macro_f1": 0.8802,
+        "model": "legal-bert-small (title + statute, class-tempered 0.5)",
+        "rare_class_recall": 0.8522,
+        "rare_classes_scored": 35,
+        "rare_title_accuracy": 0.6474,
+        "rare_title_rows": 190,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "accuracy": 0.9585,
+        "macro_f1": 0.8879,
+        "model": "legal-bert-small (title + statute, class-tempered 0.5)",
+        "rare_class_recall": 0.8657,
+        "rare_classes_scored": 31,
+        "rare_title_accuracy": 0.6454,
+        "rare_title_rows": 141,
+        "rows": 19973,
+        "split": "temporal"
+      }
+    ],
+    "budget_sweep": [
+      {
+        "aurc": 0.0054,
+        "budget": 0.0025,
+        "classes_earned": 1,
+        "global_coverage": 0.0579,
+        "global_error": 0.0005,
+        "per_class_coverage": 0.06,
+        "per_class_error": 0.0025,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.0025,
+        "classes_earned": 1,
+        "global_coverage": 0.0266,
+        "global_error": 0.0226,
+        "per_class_coverage": 0.0268,
+        "per_class_error": 0.0224,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.005,
+        "classes_earned": 3,
+        "global_coverage": 0.5372,
+        "global_error": 0.0045,
+        "per_class_coverage": 0.1415,
+        "per_class_error": 0.0032,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.005,
+        "classes_earned": 3,
+        "global_coverage": 0.396,
+        "global_error": 0.0071,
+        "per_class_coverage": 0.0693,
+        "per_class_error": 0.0145,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.0075,
+        "classes_earned": 5,
+        "global_coverage": 0.7953,
+        "global_error": 0.0061,
+        "per_class_coverage": 0.5186,
+        "per_class_error": 0.0056,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.0075,
+        "classes_earned": 5,
+        "global_coverage": 0.7911,
+        "global_error": 0.0102,
+        "per_class_coverage": 0.4034,
+        "per_class_error": 0.0086,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.01,
+        "classes_earned": 7,
+        "global_coverage": 0.8939,
+        "global_error": 0.009,
+        "per_class_coverage": 0.569,
+        "per_class_error": 0.0055,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.01,
+        "classes_earned": 7,
+        "global_coverage": 0.889,
+        "global_error": 0.013,
+        "per_class_coverage": 0.4278,
+        "per_class_error": 0.0092,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.015,
+        "classes_earned": 8,
+        "global_coverage": 0.9335,
+        "global_error": 0.014,
+        "per_class_coverage": 0.7098,
+        "per_class_error": 0.0065,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.015,
+        "classes_earned": 8,
+        "global_coverage": 0.925,
+        "global_error": 0.0163,
+        "per_class_coverage": 0.7078,
+        "per_class_error": 0.01,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.02,
+        "classes_earned": 10,
+        "global_coverage": 0.9582,
+        "global_error": 0.0188,
+        "per_class_coverage": 0.7412,
+        "per_class_error": 0.0072,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.02,
+        "classes_earned": 10,
+        "global_coverage": 0.944,
+        "global_error": 0.0199,
+        "per_class_coverage": 0.7478,
+        "per_class_error": 0.012,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.03,
+        "classes_earned": 16,
+        "global_coverage": 0.9872,
+        "global_error": 0.0294,
+        "per_class_coverage": 0.7948,
+        "per_class_error": 0.0083,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.03,
+        "classes_earned": 16,
+        "global_coverage": 0.973,
+        "global_error": 0.0286,
+        "per_class_coverage": 0.7838,
+        "per_class_error": 0.0138,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      },
+      {
+        "aurc": 0.0054,
+        "budget": 0.05,
+        "classes_earned": 24,
+        "global_coverage": 1.0,
+        "global_error": 0.0359,
+        "per_class_coverage": 0.8738,
+        "per_class_error": 0.0099,
+        "rows": 33305,
+        "split": "test"
+      },
+      {
+        "aurc": 0.01,
+        "budget": 0.05,
+        "classes_earned": 24,
+        "global_coverage": 1.0,
+        "global_error": 0.0415,
+        "per_class_coverage": 0.8689,
+        "per_class_error": 0.0161,
+        "rows": 19973,
+        "split": "temporal (2023+)"
+      }
+    ],
+    "calibration": {
+      "bins": 15,
+      "logits": "logits-tempered",
+      "report": {
+        "temporal": {
+          "accuracy": 0.9585,
+          "ece_after": 0.0094,
+          "ece_before": 0.0094,
+          "mean_confidence_after": 0.9593,
+          "mean_confidence_before": 0.9595,
+          "nll_after": 0.2013,
+          "nll_before": 0.2014,
+          "rows": 19973.0
+        },
+        "test": {
+          "accuracy": 0.9641,
+          "ece_after": 0.0048,
+          "ece_before": 0.0049,
+          "mean_confidence_after": 0.9676,
+          "mean_confidence_before": 0.9677,
+          "nll_after": 0.1641,
+          "nll_before": 0.1641,
+          "rows": 33305.0
+        },
+        "val": {
+          "accuracy": 0.964,
+          "ece_after": 0.0037,
+          "ece_before": 0.0039,
+          "mean_confidence_after": 0.9673,
+          "mean_confidence_before": 0.9675,
+          "nll_after": 0.1631,
+          "nll_before": 0.1631,
+          "rows": 33305.0
+        }
+      },
+      "temperature": 1.001557
+    },
+    "encoder": {
+      "config": {
+        "batch_size": 64,
+        "class_temper": 1.0,
+        "device": "auto",
+        "epochs": 3,
+        "eval_batch_size": 512,
+        "include_statute": true,
+        "learning_rate": 5e-05,
+        "max_grad_norm": 1.0,
+        "max_length": 64,
+        "model_name": "nlpaueb/legal-bert-small-uncased",
+        "samples_per_epoch": 50000,
+        "seed": 42,
+        "warmup_ratio": 0.06,
+        "weight_decay": 0.01
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.75559,
+          "val_accuracy": 0.95577,
+          "val_inputs": 862,
+          "val_nll": 0.22272
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.20796,
+          "val_accuracy": 0.96064,
+          "val_inputs": 862,
+          "val_nll": 0.19215
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.18818,
+          "val_accuracy": 0.96094,
+          "val_inputs": 862,
+          "val_nll": 0.18166
+        }
+      ],
+      "saved_to": "models/rapsheet-legal-bert-small"
+    },
+    "encoder_tempered": {
+      "config": {
+        "batch_size": 64,
+        "class_temper": 0.5,
+        "device": "auto",
+        "epochs": 3,
+        "eval_batch_size": 512,
+        "include_statute": true,
+        "learning_rate": 5e-05,
+        "max_grad_norm": 1.0,
+        "max_length": 64,
+        "model_name": "nlpaueb/legal-bert-small-uncased",
+        "samples_per_epoch": 50000,
+        "seed": 42,
+        "warmup_ratio": 0.06,
+        "weight_decay": 0.01
+      },
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 1.19345,
+          "val_accuracy": 0.96076,
+          "val_inputs": 862,
+          "val_nll": 0.18637
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.36562,
+          "val_accuracy": 0.96319,
+          "val_inputs": 862,
+          "val_nll": 0.16972
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.33398,
+          "val_accuracy": 0.96403,
+          "val_inputs": 862,
+          "val_nll": 0.16305
+        }
+      ],
+      "saved_to": "models/rapsheet-legal-bert-small-tempered"
+    },
+    "figures": [
+      "figures/f1-reliability.png",
+      "figures/f2-risk-coverage.png",
+      "figures/f3-top-confusions.png",
+      "figures/f4-budget-sweep.png"
+    ],
+    "logits": [
+      "promis_unseen",
+      "temporal",
+      "test",
+      "val"
+    ],
+    "probe_confidence": {
+      "legal-bert-small (title + statute)": 0.8128848075866699,
+      "legal-bert-small (title + statute, class-tempered 0.5)": 0.8490161299705505
+    },
+    "snapshot": {
+      "columns": [
+        "disposition_charged_offense_title",
+        "disposition_charged_chapter",
+        "disposition_charged_act",
+        "disposition_charged_section",
+        "disposition_charged_class",
+        "charge_disposition",
+        "updated_offense_category",
+        "label_train",
+        "received_date",
+        "rare_title",
+        "split"
+      ],
+      "directory": "/Users/windfox/src/rapsheet/data/snapshot",
+      "repo_id": "terracoil/rapsheet-charge-titles",
+      "rows": {
+        "promis_set_aside": 9824,
+        "temporal": 19973,
+        "test": 33305,
+        "train": 266439,
+        "validation": 33305
+      },
+      "withheld": [
+        "case_id",
+        "case_participant_id",
+        "charge_id",
+        "charge_version_id",
+        "primary_charge",
+        "disposition_date",
+        "court_facility"
+      ]
+    },
+    "statute_match_levels": {
+      "temporal": {
+        "act": 0.0017,
+        "chapter": 0.0001,
+        "none": 0.0001,
+        "section": 0.9981
+      },
+      "test": {
+        "act": 0.001,
+        "chapter": 0.0001,
+        "none": 0.0001,
+        "section": 0.9988
+      }
+    },
+    "top_confusions": [
+      {
+        "predicted": "Theft",
+        "rows": 90,
+        "share_of_errors": 0.0753,
+        "true": "Burglary"
+      },
+      {
+        "predicted": "Aggravated Battery Police Officer",
+        "rows": 68,
+        "share_of_errors": 0.0569,
+        "true": "Aggravated Battery"
+      },
+      {
+        "predicted": "Aggravated Battery Police Officer",
+        "rows": 67,
+        "share_of_errors": 0.0561,
+        "true": "Other Offense"
+      },
+      {
+        "predicted": "Narcotics",
+        "rows": 59,
+        "share_of_errors": 0.0494,
+        "true": "UUW - Unlawful Use of Weapon"
+      },
+      {
+        "predicted": "Robbery",
+        "rows": 56,
+        "share_of_errors": 0.0469,
+        "true": "Armed Robbery"
+      },
+      {
+        "predicted": "Aggravated Robbery",
+        "rows": 48,
+        "share_of_errors": 0.0402,
+        "true": "Armed Robbery"
+      },
+      {
+        "predicted": "Burglary",
+        "rows": 37,
+        "share_of_errors": 0.031,
+        "true": "Residential Burglary"
+      },
+      {
+        "predicted": "Theft",
+        "rows": 33,
+        "share_of_errors": 0.0276,
+        "true": "Robbery"
+      },
+      {
+        "predicted": "Aggravated Battery Police Officer",
+        "rows": 26,
+        "share_of_errors": 0.0218,
+        "true": "Sex Crimes"
+      },
+      {
+        "predicted": "Aggravated Battery",
+        "rows": 24,
+        "share_of_errors": 0.0201,
+        "true": "Sex Crimes"
+      }
+    ]
+  },
+  "git_sha": "1789c71",
+  "hardware": "Darwin arm64 (arm) / Python 3.13.16",
+  "page_count": 22,
+  "query": {
+    "$limit": 50000,
+    "$order": ":id",
+    "$select": "case_id,case_participant_id,charge_id,charge_version_id,primary_charge,disposition_charged_offense_title,disposition_charged_chapter,disposition_charged_act,disposition_charged_section,disposition_charged_class,charge_disposition,updated_offense_category,received_date,disposition_date,court_facility"
+  },
+  "retrieved_at": "2026-10-20T19:13:38.872173+00:00",
+  "row_count_fetched": 1080014,
+  "row_count_reported": 1080014,
+  "seeds": {
+    "encoder": 42,
+    "split": 42
+  },
+  "source_updated_at": "2026-04-02T14:58:19.622Z"
+}

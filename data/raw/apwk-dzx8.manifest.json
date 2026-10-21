@@ -1,0 +1,36 @@
+{
+  "columns": [
+    "case_id",
+    "case_participant_id",
+    "charge_id",
+    "charge_version_id",
+    "primary_charge",
+    "disposition_charged_offense_title",
+    "disposition_charged_chapter",
+    "disposition_charged_act",
+    "disposition_charged_section",
+    "disposition_charged_class",
+    "charge_disposition",
+    "updated_offense_category",
+    "received_date",
+    "disposition_date",
+    "court_facility"
+  ],
+  "config": {},
+  "dataset_id": "apwk-dzx8",
+  "endpoint": "https://datacatalog.cookcountyil.gov/resource/apwk-dzx8.json",
+  "extra": {},
+  "git_sha": "1789c71",
+  "hardware": "Darwin arm64 (arm) / Python 3.13.16",
+  "page_count": 22,
+  "query": {
+    "$limit": 50000,
+    "$order": ":id",
+    "$select": "case_id,case_participant_id,charge_id,charge_version_id,primary_charge,disposition_charged_offense_title,disposition_charged_chapter,disposition_charged_act,disposition_charged_section,disposition_charged_class,charge_disposition,updated_offense_category,received_date,disposition_date,court_facility"
+  },
+  "retrieved_at": "2026-10-20T19:13:38.872173+00:00",
+  "row_count_fetched": 1080014,
+  "row_count_reported": 1080014,
+  "seeds": {},
+  "source_updated_at": "2026-04-02T14:58:19.622Z"
+}

@@ -1,0 +1,23 @@
+cache-dir = "tmp/.ruff_cache"
+exclude = [".git", ".venv", "tmp", "notebooks", "__pypackages__", "build", "dist"]
+indent-width = 2
+line-length = 100
+src = ["rapsheet", "tests"]
+target-version = "py311"
+
+[lint]
+fixable = ["ALL"]
+exclude = ["*.ipynb"]
+# B018: implicit-return tails (modgud) look like "useless expressions" to ruff.
+ignore = ["B018", "D203", "D205", "D211", "D213", "D400"]
+select = ["B", "D", "E4", "E7", "E9", "F", "I"]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = ["D100", "D101", "D102", "D103", "D104", "D107"]
+
+[format]
+docstring-code-format = true
+indent-style = "space"
+line-ending = "lf"
+quote-style = "single"
+skip-magic-trailing-comma = false

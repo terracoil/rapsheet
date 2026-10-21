@@ -1,0 +1,57 @@
+# disposition_map.yaml — a human-authored, versioned lookup. NOT a model.
+#
+# Maps the 36 raw `charge_disposition` strings in Cook County SAO Dispositions (apwk-dzx8)
+# to five outcome classes. Rules are not weights: a closed vocabulary of 36 strings is a
+# lookup, and a disputant is owed the rule, not a logit.
+#
+# Bump `version` on any change. Strings under `review_notes` must be confirmed before the
+# map is cited in print.
+version: 1
+classes:
+  convicted:
+    - Plea Of Guilty
+    - Finding Guilty
+    - Verdict Guilty
+    - Finding Guilty - Lesser Included
+    - Plea of Guilty - Amended Charge
+    - Plea of Guilty - Lesser Included
+    - Verdict Guilty - Lesser Included
+    - Finding Guilty - Amended Charge
+    - Verdict Guilty - Amended Charge
+    - Finding Guilty But Mentally Ill
+    - Plea of Guilty But Mentally Ill
+    - Verdict Guilty But Mentally Ill
+  acquitted:
+    - FNG
+    - Verdict-Not Guilty
+    - Finding Not Not Guilty
+    - FNG Reason Insanity
+  not_prosecuted:
+    - Nolle Prosecution
+    - Nolle On Remand
+    - Nolle Pros - Aonic
+    - Case Dismissed
+    - SOL
+    - SOLW
+    - Withdrawn
+    - Charge Rejected
+    - FNPC
+  vacated:
+    - Charge Vacated
+    - Charge Reversed
+  non_final:
+    - Superseded by Indictment
+    - Mistrial Declared
+    - Transferred - Misd Crt
+    - Hold Pending Interlocutory
+    - Death Suggested-Cause Abated
+    - Sexually Dangerous Person
+    - BFW
+    - WOWI
+    - TRAN-FAI
+review_notes:
+  BFW: "bond forfeiture warrant — status, not an adjudication; confirm"
+  WOWI: "confirm meaning before publishing"
+  TRAN-FAI: "single row; confirm"
+  FNG Reason Insanity: "acquittal by reason of insanity — kept under acquitted; flag in card"
+  Finding Not Not Guilty: "data-entry artifact meaning not guilty; kept under acquitted"
